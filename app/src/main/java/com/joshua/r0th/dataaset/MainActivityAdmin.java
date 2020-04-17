@@ -17,7 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityAdmin extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Toast.makeText(getApplicationContext(),"ANDA BERADA DI ACTIVITY User",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"ANDA BERADA DI ACTIVITY ADMIN",Toast.LENGTH_SHORT).show();
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

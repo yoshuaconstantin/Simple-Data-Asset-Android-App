@@ -120,7 +120,7 @@
             android:layout_height="120dp"
             android:layout_below="@+id/login_title"
             android:elevation="4dp"
-            android:src="@drawable/squareimg" />
+             />
 
         <ImageButton
             android:id="@+id/user_profile_photo1"
@@ -133,7 +133,7 @@
             android:elevation="4dp"
             android:background="@null"
             android:scaleType="centerInside"
-            android:src="@drawable/ibn" />
+             />
     </LinearLayout>
 
     <TextView

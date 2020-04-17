@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         {
             String email = user.getEmail();
             if (email.contains("@admin.com")){
-                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }else{
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -81,14 +81,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            String email2 = mEmail.getText().toString().trim();
-                            if (email2.contains("@admin.com")){
-                                Toast.makeText(getApplicationContext(), "Admin Logged in Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),MainActivity2.class));
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            }
+                            startActivity(new Intent(getApplicationContext(),splashafterlogin.class));
+
                         }else {
                             Toast.makeText(getApplicationContext(), "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             mLoginBtn.setEnabled(true);
@@ -114,12 +108,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void goForgot(View view){
-        Intent intent = new Intent(getApplicationContext(), forgot_password.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), MainActivityGuest.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 }
