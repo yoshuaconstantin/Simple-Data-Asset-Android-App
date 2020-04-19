@@ -17,11 +17,11 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/requestKirimUser"
+            android:id="@+id/requestAmbil"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/Request_user" />
+            android:title="@string/request" />
         <item
-            android:id="@+id/historyUser"
+            android:id="@+id/history"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/history" />
         <item

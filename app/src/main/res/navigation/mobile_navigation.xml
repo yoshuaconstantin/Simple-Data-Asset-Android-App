@@ -11,23 +11,8 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" />
     </fragment>
-    <fragment
-        android:id="@+id/nav_home_second"
-        android:name="com.joshua.r0th.dataaset.ui.home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
 
-        <argument
-            android:name="myArg"
-            app:argType="string" />
-    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -36,8 +21,30 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/requestAmbil"
         android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/request"
+        tools:layout="@layout/request_admin" />
+    <fragment
+        android:id="@+id/requestKirimUser"
+        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:label="@string/request"
+        tools:layout="@layout/request_admin" />
+
+    <fragment
+        android:id="@+id/history"
+        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:label="@string/history"
+        tools:layout="@layout/history_admin" />
+    <fragment
+        android:id="@+id/historyUser"
+        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:label="@string/history"
+        tools:layout="@layout/history_admin" />
+    <fragment
+        android:id="@+id/logout"
+        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:label="@string/logout"
+        tools:layout="@layout/logout" />
+
 </navigation>
