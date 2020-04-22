@@ -39,18 +39,18 @@ public class LoginActivity extends AppCompatActivity {
         mCreateBtn = findViewById(R.id.daftarakun);
         FirebaseUser user = fAuth.getInstance().getCurrentUser();
 
-        if(user != null)
-        {
-            String email = user.getEmail();
-            if (email.contains("@admin.com")){
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }else{
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
+       // if(user != null)
+       // {
+          //  String email = user.getEmail();
+        // if (email.contains("@admin.com")){
+               // Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+             //  startActivity(intent);
+            //}else{
+              // Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+              //  startActivity(intent);//
+          // }
 
-        }
+        //}
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

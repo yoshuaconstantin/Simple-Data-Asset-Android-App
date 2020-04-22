@@ -1,4 +1,4 @@
-package com.joshua.r0th.dataaset.ui.gallery;
+package com.joshua.r0th.dataaset.ui.lihat_aset;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

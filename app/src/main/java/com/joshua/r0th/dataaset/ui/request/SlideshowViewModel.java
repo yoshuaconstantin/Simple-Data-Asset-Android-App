@@ -1,4 +1,4 @@
-package com.joshua.r0th.dataaset.ui.slideshow;
+package com.joshua.r0th.dataaset.ui.request;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

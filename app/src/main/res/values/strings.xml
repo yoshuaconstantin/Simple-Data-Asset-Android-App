@@ -16,4 +16,6 @@
     <string name="Request_user">Request</string>
     <string name="request">Request</string>
     <string name="logout">Logout</string>
+    <string name="tambahaset">Tambah Aset</string>
+    <string name="lihataset">Lihat Aset</string>
 </resources>

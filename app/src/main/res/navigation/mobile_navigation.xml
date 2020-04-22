@@ -13,37 +13,48 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/lihatasetadmin"
+        android:name="com.joshua.r0th.dataaset.ui.lihat_aset.lihat_asetAdmin"
+        android:label="@string/tambahaset"
+        tools:layout="@layout/history_admin" />
+
+    <fragment
+        android:id="@+id/tambahaset"
+        android:name="com.joshua.r0th.dataaset.ui.tambah_aset.tambah_asetAdmin"
+        android:label="@string/tambahaset"
+        tools:layout="@layout/tambah_aset" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.joshua.r0th.dataaset.ui.gallery.GalleryFragment"
+        android:name="com.joshua.r0th.dataaset.ui.lihat_aset.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/requestAmbil"
-        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:name="com.joshua.r0th.dataaset.ui.request.SlideshowFragment"
         android:label="@string/request"
         tools:layout="@layout/request_admin" />
     <fragment
         android:id="@+id/requestKirimUser"
-        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:name="com.joshua.r0th.dataaset.ui.request.SlideshowFragment"
         android:label="@string/request"
         tools:layout="@layout/request_admin" />
 
     <fragment
         android:id="@+id/history"
-        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:name="com.joshua.r0th.dataaset.ui.request.SlideshowFragment"
         android:label="@string/history"
         tools:layout="@layout/history_admin" />
     <fragment
         android:id="@+id/historyUser"
-        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:name="com.joshua.r0th.dataaset.ui.request.SlideshowFragment"
         android:label="@string/history"
         tools:layout="@layout/history_admin" />
     <fragment
         android:id="@+id/logout"
-        android:name="com.joshua.r0th.dataaset.ui.slideshow.SlideshowFragment"
+        android:name="com.joshua.r0th.dataaset.ui.request.SlideshowFragment"
         android:label="@string/logout"
         tools:layout="@layout/logout" />
 

@@ -31,6 +31,12 @@
         <activity android:name=".MainActivity"
             android:label="MainActivity"
             android:theme="@style/AppTheme"/>
+        <activity android:name="com.joshua.r0th.dataaset.ui.tambah_aset.tambah_asetAdmin"
+            android:label="MainActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name="com.joshua.r0th.dataaset.ui.lihat_aset.lihat_asetAdmin"
+            android:label="MainActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
