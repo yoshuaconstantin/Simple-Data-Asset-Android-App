@@ -44,6 +44,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="lihatasetuser">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-157" />
+                            <option name="y" value="656" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="logout">
                     <value>
                       <LayoutPositions>
@@ -85,8 +97,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-360" />
+                            <option name="y" value="669" />
                           </Point>
                         </option>
                       </LayoutPositions>

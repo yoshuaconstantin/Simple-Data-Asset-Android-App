@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         FirebaseUser user = fAuth.getInstance().getCurrentUser();
-        if(user != null)
+       /* if(user != null)
         {
             String email = user.getEmail();
             if (email.equals("@admin.com")){
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
-        }
+        }*/
 
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override

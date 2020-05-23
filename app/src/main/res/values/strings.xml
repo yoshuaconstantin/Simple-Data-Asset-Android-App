@@ -18,4 +18,13 @@
     <string name="logout">Logout</string>
     <string name="tambahaset">Tambah Aset</string>
     <string name="lihataset">Lihat Aset</string>
+
+    <string-array name="nama_tempat">
+        <item>Ruang Dosen</item>
+        <item>Ruang TU</item>
+        <item>Ruang Dekan</item>
+        <item>Ruang Wakil Dekan</item>
+        <item>Ruang Sekertaris</item>
+        <item>Ruang BPSI</item>
+    </string-array>
 </resources>

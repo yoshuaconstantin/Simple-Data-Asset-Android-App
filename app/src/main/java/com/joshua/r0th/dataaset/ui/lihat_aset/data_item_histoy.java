@@ -40,9 +40,12 @@ public class data_item_histoy extends RecyclerView.Adapter<data_item_histoy.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final data_item item = items.get(position);
-        holder.rvnama.setText(item.getAnama());
-        holder.rvjenis.setText(item.getBjenis());
+        holder.rvnama.setText(item.getBnama());
         holder.rvjumlah.setText(item.getCjumlah());
+        holder.rvHsatuan.setText(item.getDhargasatuan());
+        holder.rvTotal.setText(item.getEtotal());
+        holder.rvPenempatan.setText(item.getFtempat());
+        holder.rvstatus.setText(item.getGstatus());
     }
 
 
@@ -54,13 +57,17 @@ public class data_item_histoy extends RecyclerView.Adapter<data_item_histoy.View
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView rvjenis,rvnama,rvjumlah;
+        private TextView rvnama,rvjumlah,rvTotal,rvPenempatan,rvHsatuan,rvstatus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             rvnama = itemView.findViewById(R.id.nama);
-            rvjenis = itemView.findViewById(R.id.jenisbarang);
             rvjumlah = itemView.findViewById(R.id.jumlahbarang);
+            rvHsatuan= itemView.findViewById(R.id.hargasatuan);
+            rvTotal= itemView.findViewById(R.id.totalharga);
+            rvPenempatan= itemView.findViewById(R.id.tempat);
+            rvstatus = itemView.findViewById(R.id.statusshow);
 
 
 

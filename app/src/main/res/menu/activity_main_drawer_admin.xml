@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/tambahaset"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/add"
             android:title="@string/tambahaset" />
 
         <item
@@ -19,15 +19,15 @@
             android:title="@string/lihataset" />
         <item
             android:id="@+id/requestAmbil"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/request"
             android:title="@string/request" />
         <item
             android:id="@+id/history"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/history"
             android:title="@string/history" />
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/logout"
             android:title="@string/logout" />
     </group>
 </menu>

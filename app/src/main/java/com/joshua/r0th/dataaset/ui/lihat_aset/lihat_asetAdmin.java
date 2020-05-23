@@ -1,9 +1,18 @@
 package com.joshua.r0th.dataaset.ui.lihat_aset;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,7 +40,6 @@ public class lihat_asetAdmin extends Fragment {
     private FirebaseDatabase database;
     FirebaseRecyclerOptions<data_item> options;
     FirebaseRecyclerAdapter<data_item, viewholder> adapter2;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,9 +66,12 @@ public class lihat_asetAdmin extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull viewholder viewholder, int i, @NonNull data_item data_item) {
 
-                viewholder.rvnama.setText(data_item.getAnama());
-                viewholder.rvjenis.setText(data_item.getBjenis());
-                viewholder.rvjumlah.setText(data_item.getCjumlah());
+                viewholder.rvnama.setText(data_item.getBnama());
+                viewholder.rvjumlah.setText(Integer.toString(data_item.getCjumlah()));
+                viewholder.rvHsatuan.setText("Rp."+data_item.getDhargasatuan());
+                viewholder.rvTotal.setText("Rp."+data_item.getEtotal());
+                viewholder.rvPenempatan.setText(data_item.getFtempat());
+                viewholder.rvstatus.setText(data_item.getGstatus());
 
             }
 
@@ -77,4 +88,107 @@ public class lihat_asetAdmin extends Fragment {
         adapter2.notifyDataSetChanged();
 
     }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if(item.getTitle().equals("Update")){
+            showUpdateDialog(adapter2.getRef(item.getOrder()).getKey(), adapter2.getItem(item.getOrder()));
+
+
+        } else if(item.getTitle().equals("Delete")){
+            deleteTask(adapter2.getRef(item.getOrder()).getKey());
+        }
+
+        return super.onContextItemSelected(item);
+
+    }
+
+    private void deleteTask(String key) {
+        reference.child(key).removeValue();
+    }
+
+    private void showUpdateDialog(final String key, data_item item) {
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Update");
+        builder.setMessage("Silahkan Update Data");
+        View updateLayout = LayoutInflater.from(getContext()).inflate(R.layout.customedit_dataaset, null);
+        //
+        String[] arraySpinner = new String[] {
+                "Ruang Dosen", "Ruang TU", "Ruang Dekan", "Ruang Wakil Dekan", "Ruang Sekertaris", "Ruang BPSI"
+        };
+        String[] arraystatus = new String[] {
+                "Baik", "Normal", "Rusak", "Rusak Parah"
+        };
+
+        String[] arraynamaset = new String[] {
+                "Meja Dosen", "Meja Rapat", "Meja Komputer", "Kursi", "Sapu", "Printer", "Stop Kontak","Dispenser"
+        };
+        //
+        final TextView idaset =updateLayout.findViewById(R.id.edit_id);
+        final Spinner namabarang = updateLayout.findViewById(R.id.edit_anamabarang);
+        final EditText editjumlah = updateLayout.findViewById(R.id.edit_bjumlahbarang);
+        final EditText editharga = updateLayout.findViewById(R.id.edit_chargasatuan);
+        final EditText edittotal = updateLayout.findViewById(R.id.edit_dtotal);
+        final Spinner tempatedit= updateLayout.findViewById(R.id.edit_etempat);
+        final Spinner statusedit= updateLayout.findViewById(R.id.edit_fstatus);
+
+
+
+
+        //
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        ArrayAdapter<String> adapterstatus = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, arraystatus);
+        ArrayAdapter<String> adapternamaaset = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, arraynamaset);
+        adapterstatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        namabarang.setAdapter(adapternamaaset);
+        tempatedit.setAdapter(adapter);
+        statusedit.setAdapter(adapterstatus);
+        //
+
+        //final TextView namauser = updateLayout.findViewById(R.id.edit_anamabarang);
+
+/*        final EditText edittempat = updateLayout.findViewById(R.id.edit_etempat);
+        final EditText editstatus = updateLayout.findViewById(R.id.edit_fstatus);*/
+
+       /* namabarang.setSelection(Integer.parseInt(item.getBnama()));
+        statusedit.setSelection(Integer.parseInt(item.getGstatus()));
+        tempatedit.setSelection(Integer.parseInt(item.getFtempat()));*/
+        idaset.setText(item.getAid());
+        editjumlah.setText(Integer.toString(item.getCjumlah()));
+        editharga.setText(item.getDhargasatuan());
+        edittotal.setText(item.getEtotal());
+
+        builder.setView(updateLayout);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String id = idaset.getText().toString();
+                String nm = namabarang.getSelectedItem().toString();
+                int jmlh = Integer.parseInt(editjumlah.getText().toString());
+                String hrga = editharga.getText().toString();
+                String Total = edittotal.getText().toString();
+                String tmpt = tempatedit.getSelectedItem().toString();
+                String stts = statusedit.getSelectedItem().toString();
+
+                data_item daitem3 = new data_item(id , nm, jmlh, hrga, tmpt,Total, stts);
+                reference.child(key).setValue(daitem3);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+
 }

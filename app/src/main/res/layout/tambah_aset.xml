@@ -10,70 +10,107 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_60sdp"
         android:background="@drawable/gradient"
-        android:elevation="4dp"
+        android:elevation="@dimen/_4sdp"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/_10sdp">
 
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="30dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/Adate"/>
-
-
-
+            android:paddingTop="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Barang" />
-            <EditText
-                app:errorEnabled="true"
-
-                android:id="@+id/Anamabarang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundtext" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jenis Barang" />
+                android:text="ID Aset" />
 
             <EditText
-                app:errorEnabled="true"
+                android:id="@+id/Aidaset"
 
-                android:id="@+id/Bjenisbarang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
-                />
+                android:inputType="number"
+                app:errorEnabled="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Aset" />
+            <Spinner
+                android:id="@+id/BnamaAset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jumlah Barang" />
+                android:text="Jumlah" />
 
             <EditText
-                app:errorEnabled="true"
-                android:inputType="numberDecimal"
-                android:id="@+id/Cjumlahbarang"
+                android:id="@+id/Cjumlah"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/roundtext" />
+                android:background="@drawable/roundtext"
+                android:inputType="number"
+                app:errorEnabled="true" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Harga Satuan" />
+
+            <EditText
+                android:id="@+id/Dhargasatuan"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundtext"
+                android:inputType="number"
+                app:errorEnabled="true" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total" />
+
+            <EditText
+                android:id="@+id/ETotal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundtext"
+                android:inputType="number"
+                app:errorEnabled="true" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+
+            <Spinner
+                android:id="@+id/Gstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Penempatan" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Fspinertempat"/>
+
 
 
             <LinearLayout
@@ -88,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="17dp"
                     android:background="#d67601"
-                    android:text="Tambah Data"
+                    android:text=" Tambah Data "
                     android:textColor="#fff"
                     android:textSize="18sp"
                     android:visibility="visible"/>

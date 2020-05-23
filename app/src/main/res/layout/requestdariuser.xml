@@ -1,6 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:background="@drawable/gradient"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_25sdp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAMA : "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/namainputrequestuser"
+                android:text="nama"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Aset" />
+            <Spinner
+                app:errorEnabled="true"
+
+                android:id="@+id/Anamasetreq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jumlah" />
+
+            <EditText
+                android:id="@+id/Bjumlahreq"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/roundtext"
+                android:inputType="number"
+                app:errorEnabled="true" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Akan Di Kirim ke" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/CtempatReq"/>
+            <TextView
+                android:id="@+id/statusrequestuserawal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pending"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/tambahdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="17dp"
+                    android:background="#d67601"
+                    android:text=" Request Ambil "
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:visibility="visible"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/text_warning2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tunggu pada tanggal berikut untuk input data kembali "
+                    android:textSize="13dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/text_warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/text_warning3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anda Sudah menginput di tanggal berikut "
+                    android:textSize="13dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/text_warning_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/textviewadd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:gravity="center_horizontal"
+        android:text="Request Pengambilan Aset"
+        android:textColor="#fff"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/text_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>
+
