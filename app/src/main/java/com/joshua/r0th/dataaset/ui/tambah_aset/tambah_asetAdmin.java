@@ -1,5 +1,6 @@
 package com.joshua.r0th.dataaset.ui.tambah_aset;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -15,8 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -120,18 +123,33 @@ public class tambah_asetAdmin extends Fragment {
                 //
                 final int jumlah= Integer.parseInt(jumlahbarang.getText().toString());
                 reference = database.getReference("Data_aset");
-                Query query = reference.child(nama);
+                Query query = reference.child(nama+Status);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()){
-                            Toast.makeText(getContext(),"NAMA ASET SUDAH TERDAFTAR",Toast.LENGTH_LONG).show();
+//                            String cek = dataSnapshot.child(Status).child("gstatus").getValue(String.class);
 
-                            return ;
+                          /*  if (cek.equals(Status)){*/
+                            int JUmlah = dataSnapshot.child("cjumlah").getValue(Integer.class);
+                            int jumtambah = JUmlah + jumlah;
+                            final Task<Void> hasil = FirebaseDatabase.getInstance().getReference("Data_aset").child(nama+Status).child("cjumlah").setValue(jumtambah);
+                            hasil.addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    idbarang.setText("");
+                                    Hargasatuan.setText("");
+                                    jumlahbarang.setText("");
+                                    total.setText("");
+                                }
+                            });
+                                Toast.makeText(getContext(), "Data sudah di tambah untuk aset dan status yang sama !", Toast.LENGTH_LONG).show();
+                                return;
+//                        }
 
                         }else {
                             data_item data_item1 = new data_item(id,nama,jumlah,hargasatuan,penempatan,Total,Status);
-                            myRef.child(nama).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            myRef.child(nama+Status).setValue(data_item1).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(getContext(), "Berhasil menambah Data Aset !", Toast.LENGTH_SHORT).show();

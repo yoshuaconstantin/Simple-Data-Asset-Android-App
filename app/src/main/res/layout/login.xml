@@ -115,7 +115,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:src="@drawable/ryan"
+            android:src="@drawable/unas"
             android:id="@+id/user_profile_photo"
 
             android:layout_width="121dp"

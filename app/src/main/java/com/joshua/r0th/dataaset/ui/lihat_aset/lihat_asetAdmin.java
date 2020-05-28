@@ -22,11 +22,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.joshua.r0th.dataaset.R;
 import com.joshua.r0th.dataaset.ui.tambah_aset.data_item;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class lihat_asetAdmin extends Fragment {
@@ -128,11 +133,11 @@ public class lihat_asetAdmin extends Fragment {
         };
         //
         final TextView idaset =updateLayout.findViewById(R.id.edit_id);
-        final Spinner namabarang = updateLayout.findViewById(R.id.edit_anamabarang);
+        final TextView namabarang = updateLayout.findViewById(R.id.edit_anamabarang);
         final EditText editjumlah = updateLayout.findViewById(R.id.edit_bjumlahbarang);
         final EditText editharga = updateLayout.findViewById(R.id.edit_chargasatuan);
         final EditText edittotal = updateLayout.findViewById(R.id.edit_dtotal);
-        final Spinner tempatedit= updateLayout.findViewById(R.id.edit_etempat);
+        final TextView tempatedit= updateLayout.findViewById(R.id.edit_etempat);
         final Spinner statusedit= updateLayout.findViewById(R.id.edit_fstatus);
 
 
@@ -147,8 +152,6 @@ public class lihat_asetAdmin extends Fragment {
                 android.R.layout.simple_spinner_dropdown_item, arraynamaset);
         adapterstatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        namabarang.setAdapter(adapternamaaset);
-        tempatedit.setAdapter(adapter);
         statusedit.setAdapter(adapterstatus);
         //
 
@@ -160,9 +163,11 @@ public class lihat_asetAdmin extends Fragment {
        /* namabarang.setSelection(Integer.parseInt(item.getBnama()));
         statusedit.setSelection(Integer.parseInt(item.getGstatus()));
         tempatedit.setSelection(Integer.parseInt(item.getFtempat()));*/
+        namabarang.setText(item.getBnama());
         idaset.setText(item.getAid());
         editjumlah.setText(Integer.toString(item.getCjumlah()));
         editharga.setText(item.getDhargasatuan());
+        tempatedit.setText(item.getFtempat());
         edittotal.setText(item.getEtotal());
 
         builder.setView(updateLayout);
@@ -170,11 +175,11 @@ public class lihat_asetAdmin extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String id = idaset.getText().toString();
-                String nm = namabarang.getSelectedItem().toString();
+                String nm = namabarang.getText().toString();
                 int jmlh = Integer.parseInt(editjumlah.getText().toString());
                 String hrga = editharga.getText().toString();
                 String Total = edittotal.getText().toString();
-                String tmpt = tempatedit.getSelectedItem().toString();
+                String tmpt = tempatedit.getText().toString();
                 String stts = statusedit.getSelectedItem().toString();
 
                 data_item daitem3 = new data_item(id , nm, jmlh, hrga, tmpt,Total, stts);

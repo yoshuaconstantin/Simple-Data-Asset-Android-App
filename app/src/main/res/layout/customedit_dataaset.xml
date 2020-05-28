@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nama Barang" />
-            <Spinner
+            <TextView
                 android:id="@+id/edit_anamabarang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,12 +61,14 @@
                 android:inputType="number" />
 
             <TextView
-
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Harga Satuan" />
 
             <EditText
+
+                android:visibility="gone"
                 android:id="@+id/edit_chargasatuan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,13 +77,14 @@
                 android:inputType="number" />
 
             <TextView
-
+                android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total Harga"
                />
 
             <EditText
+                android:visibility="gone"
                 android:id="@+id/edit_dtotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,24 +93,26 @@
                 android:inputType="number" />
 
             <TextView
-
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tempat" />
 
-            <Spinner
+            <TextView
+                android:visibility="gone"
                 android:id="@+id/edit_etempat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundtext"
                 />
             <TextView
-
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Status" />
 
             <Spinner
+                android:visibility="gone"
                 android:id="@+id/edit_fstatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

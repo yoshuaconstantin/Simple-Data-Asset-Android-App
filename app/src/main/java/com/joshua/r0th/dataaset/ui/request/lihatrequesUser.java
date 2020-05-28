@@ -131,6 +131,7 @@ public class lihatrequesUser extends Fragment implements data_adapter.OnItemClic
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 mDatabase2.setValue("diterima");
                 hitungan(selectedKey);
 
@@ -156,8 +157,7 @@ public class lihatrequesUser extends Fragment implements data_adapter.OnItemClic
     }
 public void hitungan(String selectedKey){
     final DatabaseReference mdatabasenama = FirebaseDatabase.getInstance().getReference("request_data").child(selectedKey).child("bnamaAset");
-    final DatabaseReference mdatabasejumlah = FirebaseDatabase.getInstance().getReference("request_data").child(selectedKey).child("cjumlah");
-
+    final Query mdatabasetstatus = FirebaseDatabase.getInstance().getReference("request_data").child(selectedKey).child("cjumlah");
     reference = database.getReference("Data_aset");
     mdatabasenama.addListenerForSingleValueEvent(new ValueEventListener() {
         @Override
@@ -173,11 +173,11 @@ public void hitungan(String selectedKey){
 
         }
     });
-    mdatabasejumlah.addListenerForSingleValueEvent(new ValueEventListener() {
+    mdatabasetstatus.addValueEventListener(new ValueEventListener() {
         String jumlah;
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            jumlah = dataSnapshot.getValue(String.class);
+            jumlah  = dataSnapshot.getValue(String.class);
             jumlahkeint = Integer.parseInt(jumlah);
 
         }
@@ -187,18 +187,18 @@ public void hitungan(String selectedKey){
 
         }
     });
-    Query query = reference.orderByChild("bnama").equalTo(namaAset);
+    Query query = reference.orderByChild(namaAset+"Baik");
     query.addListenerForSingleValueEvent(new ValueEventListener() {
         int jumlahawal;
         int jumlahhitung = 0;
         //int jumlahkeint;
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                jumlahawal = postSnapshot.child("cjumlah").getValue(Integer.class);
+            if (dataSnapshot.exists()) {
+                jumlahawal = dataSnapshot.child(namaAset+"Baik").child("cjumlah").getValue(Integer.class);
                 jumlahhitung = jumlahawal - jumlahkeint;
 
-                final Task<Void> hasil = FirebaseDatabase.getInstance().getReference("Data_aset").child(namaAset).child("cjumlah").setValue(jumlahhitung);
+                final Task<Void> hasil = FirebaseDatabase.getInstance().getReference("Data_aset").child(namaAset + "Baik").child("cjumlah").setValue(jumlahhitung);
                 hasil.addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
